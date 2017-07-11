@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import components from './componentsList'
+import components from './components'
 
 export default {
   name: 'Showcase',
   data () {
     return {
-      components: components
+      components
     }
   }
 }
