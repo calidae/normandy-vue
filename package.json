@@ -16,6 +16,10 @@
     "build:docs": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afontcu/vue-objects"
+  },
   "dependencies": {
     "vue": "^2.2.6",
     "vue-router": "^2.3.1"
