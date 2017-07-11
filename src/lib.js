@@ -1,3 +1,3 @@
-import Media from './components/Media'
+import Media from '@/components/Media'
 
 export { Media }
