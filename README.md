@@ -47,3 +47,21 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## How can I add more components to this library?
+---------------
+
+Fork the repo, and then:
+
+1. Develop your component in `src/components/` folder.
+
+2. Add your component in `src/lib.js` to make it available to everyone.
+
+3. Add a new file in `src/showcase/components/` with the configuration of your component.
+Make sure to define its required props and all the available values and attributes.
+This will automagically create a showcase page for your component.
+
+4. Import that file in `src/showcase/index.js` and export it.
+
+
