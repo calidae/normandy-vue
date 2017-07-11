@@ -56,8 +56,8 @@ export default {
    MEDIA OBJECT
    ========================================================================== */
 
-$global-spacing-unit: 1em;
-$global-spacing-unit-tiny: $global-spacing-unit / 1.5;
+$global-spacing-unit: 2em;
+$global-spacing-unit-tiny: $global-spacing-unit / 2.5;
 $global-spacing-unit-small: $global-spacing-unit / 2;
 $global-spacing-unit-large: $global-spacing-unit * 2;
 $global-spacing-unit-huge: $global-spacing-unit * 2.5;
