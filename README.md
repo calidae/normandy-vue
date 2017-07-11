@@ -54,7 +54,9 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 Fork the repo, and then:
 
-1. Develop your component in `src/components/` folder.
+1. Create a new folder for your component in `src/components/` folder. Make sure you
+create an `index.js` file that imports and exports your file. Add also a test suite
+in the same folder
 
 2. Add your component in `src/lib.js` to make it available to everyone.
 
