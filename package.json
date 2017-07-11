@@ -15,7 +15,8 @@
     "build:lib": "node build/build-lib.js",
     "build:docs": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
-    "test": "jest"
+    "test": "jest",
+    "tdd": "jest --watch --notify"
   },
   "repository": {
     "type": "git",
