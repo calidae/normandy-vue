@@ -57,10 +57,10 @@ export default {
    ========================================================================== */
 
 $global-spacing-unit: 2em;
-$global-spacing-unit-tiny: $global-spacing-unit / 2.5;
+$global-spacing-unit-tiny: $global-spacing-unit / 3;
 $global-spacing-unit-small: $global-spacing-unit / 2;
 $global-spacing-unit-large: $global-spacing-unit * 2;
-$global-spacing-unit-huge: $global-spacing-unit * 2.5;
+$global-spacing-unit-huge: $global-spacing-unit * 3;
 
 /**
  * Place any image- and text-like content side-by-side, as per:
