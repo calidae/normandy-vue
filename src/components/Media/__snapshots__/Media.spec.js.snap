@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media.vue should match the snapshot 1`] = `
+<div
+  class="o-media"
+>
+  <div
+    class="o-media__img"
+  >
+    <img
+      src="http://example.com"
+      alt="alt"
+    />
+  </div>
+  <div
+    class="o-media__body"
+  />
+</div>
+`;
