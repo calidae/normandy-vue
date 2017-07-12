@@ -1,7 +1,9 @@
 import Media from './media'
+import Grid from './grid'
 
 const components = {
-  Media
+  Media,
+  Grid
 }
 
 export default components
