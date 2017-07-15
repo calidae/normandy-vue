@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div v-for="component in components">
-      <router-link :to="component.name">{{ component.title }}</router-link>
+    <div v-for="route in routes">
+      <router-link :to="route.path">{{ route.name }}</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import components from './components'
+import routes from '@/router/components'
 
 export default {
   name: 'Showcase',
   data () {
     return {
-      components
+      routes
     }
   }
 }
