@@ -7,6 +7,7 @@
       space && `o-grid--${space}`,
       { 'o-grid--reverse': reverse }
     ]">
+    <slot></slot>
   </div>
 </template>
 
@@ -41,7 +42,7 @@ export default {
     reverse: {
       type: Boolean,
       default: false
-    },
+    }
   }
 }
 </script>
