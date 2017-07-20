@@ -81,11 +81,9 @@
     "npm": ">= 3.0.0"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "vue"
-    ],
+    "moduleFileExtensions": ["js", "vue"],
     "moduleNameMapper": {
+      "^@[/](.+)": "<rootDir>/src/$1",
       "src/components/([^\\.]*)$": "<rootDir>/src/components/$1.vue",
       "^vue$": "vue/dist/vue.common.js",
       "src/([^\\.]*)$": "<rootDir>/src/$1.vue",
