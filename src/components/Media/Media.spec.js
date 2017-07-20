@@ -13,9 +13,9 @@ const propsData = {
 describe('Media.vue', () => {
   it('renders correct nodes when required props are provided', () => {
     const vm = mount(Media, { propsData })
-    expect(vm.find('div.o-media')).toBeTruthy()
-    expect(vm.find('div.o-media__body')).toBeTruthy()
-    expect(vm.find('div.o-media__img')).toBeTruthy()
+    expect(vm.hasClass('o-media')).toBe(true)
+    expect(vm.find('.o-media__body')).toBeTruthy()
+    expect(vm.find('.o-media__img')).toBeTruthy()
   })
 
   it('renders slot content when defined', () => {
@@ -24,7 +24,7 @@ describe('Media.vue', () => {
     })
 
     const vm = mount(Media, { propsData, slots: { default: Dummy } })
-    expect(vm.find('.dummy-class')).toBeTruthy()
+    expect(vm.find('dummy-class')).toBeTruthy()
   })
 
   it('adds size class when size prop is provided', () => {
@@ -32,7 +32,7 @@ describe('Media.vue', () => {
 
     values.forEach((size) => {
       const vm = mount(Media, { propsData: { ...propsData, size } })
-      expect(vm.hasClass(`o-media--${size}`)).toBeTruthy()
+      expect(vm.hasClass(`o-media--${size}`)).toBe(true)
     })
   })
 
@@ -41,31 +41,33 @@ describe('Media.vue', () => {
 
     values.forEach((align) => {
       const vm = mount(Media, { propsData: { ...propsData, align } })
-      expect(vm.hasClass(`o-media--${align}`)).toBeTruthy()
+      expect(vm.hasClass(`o-media--${align}`)).toBe(true)
     })
   })
 
   it('adds reverse class when reverse prop is provided', () => {
     const vm = mount(Media, { propsData: { ...propsData, reverse: true } })
-    expect(vm.hasClass('o-media--reverse')).toBeTruthy()
+    expect(vm.hasClass('o-media--reverse')).toBe(true)
   })
 
   it('adds all optional classes when all props are provided', () => {
     const vm = mount(Media, {
       propsData: { ...propsData, size: 'small', align: 'stretch', reverse: true }
     })
-    expect(vm.find('div.o-media--reverse.o-media--small.o-media--stretch')).toBeTruthy()
+    expect(vm.hasClass('o-media--reverse')).toBe(true)
+    expect(vm.hasClass('o-media--small')).toBe(true)
+    expect(vm.hasClass('o-media--stretch')).toBe(true)
   })
 
   it('checks that changing size prop changes its class', () => {
     const vm = mount(Media, { propsData: { ...propsData, size: 'large' } })
-    expect(vm.hasClass('o-media--large')).toBeTruthy()
-    expect(vm.hasClass('o-media--small')).toBeFalsy()
+    expect(vm.hasClass('o-media--large')).toBe(true)
+    expect(vm.hasClass('o-media--small')).toBe(false)
 
     vm.setProps({ size: 'small' })
 
-    expect(vm.hasClass('o-media--small')).toBeTruthy()
-    expect(vm.hasClass('o-media--large')).toBeFalsy()
+    expect(vm.hasClass('o-media--small')).toBe(true)
+    expect(vm.hasClass('o-media--large')).toBe(false)
   })
 
   it('breaks when required props are not provided', () => {
@@ -89,10 +91,7 @@ describe('Media.vue', () => {
   })
 
   it('renders an snapshot', () => {
-    const Constructor = Vue.extend(Media)
-    const vm = new Constructor({
-      propsData
-    }).$mount()
-    expect(vm.$mount().$el).toMatchSnapshot()
+    const wrapper = mount(Media, { propsData })
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })
