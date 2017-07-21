@@ -28,6 +28,14 @@ pre {
   line-height: 1.8em;
 }
 
+h3 {
+  margin-top: 40px;
+}
+
+h3 + p {
+  margin-top: 10px;
+}
+
 /**
  * Outline all Object classes.
  */

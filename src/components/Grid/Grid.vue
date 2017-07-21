@@ -5,6 +5,10 @@
       align && `o-grid--${align}`,
       size && `o-grid--${size}`,
       space && `o-grid--${space}`,
+      { 'o-grid--stretch': stretch },
+      { 'o-grid--wrapped': wrapped },
+      { 'o-grid--liquid': liquid },
+      { 'o-grid--auto o-grid--liquid': auto },
       { 'o-grid--reverse': reverse }
     ]">
     <slot></slot>
@@ -12,7 +16,6 @@
 </template>
 
 <script>
-const DISPLAY_VALUES = ['liquid', 'stretch', 'auto']
 const ALIGN_VALUES = ['bottom', 'middle']
 const SIZE_VALUES = ['flush', 'tiny', 'small', 'large', 'huge']
 const SPACE_VALUES = ['around', 'between', 'center', 'end']
@@ -23,10 +26,6 @@ export default {
     return {}
   },
   props: {
-    display: {
-      type: String,
-      validator: value => DISPLAY_VALUES.includes(value)
-    },
     align: {
       type: String,
       validator: value => ALIGN_VALUES.includes(value)
@@ -39,7 +38,23 @@ export default {
       type: String,
       validator: value => SPACE_VALUES.includes(value)
     },
+    stretch: {
+      type: Boolean,
+      default: false
+    },
+    auto: {
+      type: Boolean,
+      default: false
+    },
+    liquid: {
+      type: Boolean,
+      default: false
+    },
     reverse: {
+      type: Boolean,
+      default: false
+    },
+    wrapped: {
       type: Boolean,
       default: false
     }
