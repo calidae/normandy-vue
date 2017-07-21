@@ -13,7 +13,12 @@ html {
   &::after {
     box-sizing: inherit;
   }
+}
 
+img {
+  max-width: 100%;
+  font-style: italic;
+  vertical-align: middle;
 }
 
 #app {
