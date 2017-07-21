@@ -116,7 +116,7 @@
     <h2>Auto modifier</h2>
     <hr>
     <pre>prop: <b>auto</b></pre>
-    <p>This modifier will size the element according to its size property (which can itself be auto, which sizes the element based on its contents)..</p>
+    <p>This modifier will size the element according to its size property (which can itself be auto, which sizes the element based on its contents).</p>
     <Grid auto>
       <Grid-item>
           <img src="http://fakeimg.pl/320x240/">
@@ -139,6 +139,12 @@
     <h2>Wrapped modifier</h2>
     <hr>
     <pre>prop: <b>wrapped</b></pre>
+    <h3><i>(default)</i></h3>
+    <Grid wrapped liquid>
+      <Grid-item v-for="i in [1,2,3]" :key="i">
+        <div class="demo">1/3</div>
+      </Grid-item>
+    </Grid>
     <div v-for="size in size_values">
       <h3>{{ size }}</h3>
       <Grid wrapped liquid :size="size">

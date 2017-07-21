@@ -1,15 +1,16 @@
 <template>
   <div class="o-grid"
     :class="[
-      display && `o-grid--${display}`,
       align && `o-grid--${align}`,
       size && `o-grid--${size}`,
       space && `o-grid--${space}`,
-      { 'o-grid--stretch': stretch },
-      { 'o-grid--wrapped': wrapped },
-      { 'o-grid--liquid': liquid },
-      { 'o-grid--auto o-grid--liquid': auto },
-      { 'o-grid--reverse': reverse }
+      {
+        'o-grid--stretch': stretch,
+        'o-grid--wrapped': wrapped,
+        'o-grid--liquid': liquid,
+        'o-grid--auto o-grid--liquid': auto,
+        'o-grid--reverse': reverse
+      }
     ]">
     <slot></slot>
   </div>
