@@ -1,9 +1,6 @@
-import Vue from 'vue'
 import Media from './Media'
 import { mount } from 'avoriaz'
-
-// Mock console.error
-global.console.error = jest.fn()
+import Dummy from '@/Dummy'
 
 const propsData = {
   src: 'http://example.com',
@@ -11,6 +8,10 @@ const propsData = {
 }
 
 describe('Media.vue', () => {
+  beforeAll(() => console.error = jest.fn(error => {
+    throw new Error(error)
+  }))
+
   it('renders correct nodes when required props are provided', () => {
     const vm = mount(Media, { propsData })
     expect(vm.hasClass('o-media')).toBe(true)
@@ -19,12 +20,8 @@ describe('Media.vue', () => {
   })
 
   it('renders slot content when defined', () => {
-    const Dummy = new Vue({
-      template: '<div class="dummy-class">Lorem ipsum</div>'
-    })
-
     const vm = mount(Media, { propsData, slots: { default: Dummy } })
-    expect(vm.find('dummy-class')).toBeTruthy()
+    expect(vm.first('.Dummy')).toBeTruthy()
   })
 
   it('adds size class when size prop is provided', () => {
@@ -71,23 +68,25 @@ describe('Media.vue', () => {
   })
 
   it('breaks when required props are not provided', () => {
-    mount(Media)
-    expect(console.error).toBeCalled()
+    expect(() => mount(Media)).toThrow()
   })
 
   it('breaks with invalid size prop value', () => {
-    mount(Media, { propsData: { ...propsData, size: 'willfail' } })
-    expect(console.error).toBeCalled()
+    expect(() => {
+      mount(Media, { propsData: { ...propsData, size: 'willfail' } })
+    }).toThrow()
   })
 
   it('breaks with invalid size prop value', () => {
-    mount(Media, { propsData: { ...propsData, align: 'willfail' } })
-    expect(console.error).toBeCalled()
+    expect(() => {
+      mount(Media, { propsData: { ...propsData, align: 'willfail' } })
+    }).toThrow()
   })
 
   it('breaks with invalid reverse prop value', () => {
-    mount(Media, { propsData: { ...propsData, reverse: 'willfail' } })
-    expect(console.error).toBeCalled()
+    expect(() => {
+      mount(Media, { propsData: { ...propsData, reverse: 'willfail' } })
+    }).toThrow()
   })
 
   it('renders an snapshot', () => {
