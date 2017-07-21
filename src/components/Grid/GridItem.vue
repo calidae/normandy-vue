@@ -19,14 +19,16 @@ export default {
     computedStyle () {
       if (!this.width) return null
 
-      const split = this.width.split('/')
-      const result = parseInt(split[0]) / parseInt(split[1])
-      const width = 100 * this.round(result, 5) + '%'
-
-      return { width }
+      return { width: this.getWidthFromFraction(this.width) }
     }
   },
   methods: {
+    getWidthFromFraction (fraction) {
+      const split = fraction.split('/')
+      const result = parseInt(split[0]) / parseInt(split[1])
+
+      return this.round(result, 5) * 100 + '%'
+    },
     round (value, decimals) {
       return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals).toFixed(decimals)
     }
