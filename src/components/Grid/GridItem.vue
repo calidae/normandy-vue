@@ -15,7 +15,7 @@ export default {
       type: String,
       validator: value => {
         const split = value.split('/')
-        return value.match(/^[0-9]\/[0-9]$/g) && split[0] <= split[1]
+        return value.match(/^[1-9]\/[1-9]$/g) && split[0] <= split[1]
       }
     }
   },
