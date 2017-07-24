@@ -56,7 +56,7 @@ describe('Media.vue', () => {
     expect(wrapper.hasClass('o-media--stretch')).toBe(true)
   })
 
-  it('checks that changing size prop changes its class', () => {
+  it('changes size prop when its class', () => {
     const wrapper = mount(Media, { propsData: { ...propsData, size: 'large' } })
     expect(wrapper.hasClass('o-media--large')).toBe(true)
     expect(wrapper.hasClass('o-media--small')).toBe(false)
