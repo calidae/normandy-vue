@@ -1,7 +1,9 @@
 <template>
   <div>
     <component-header v-bind="{ title, description }" />
-
+    <p>The Grid component consists of two components: the <samp>&lt;Grid></samp> wrapper and the <samp>&lt;Grid-item></samp>
+    component, which is supposed to live inside the wrapper.</p>
+    <br />
     <Grid>
       <Grid-item><div class="demo">lorem</div></Grid-item>
       <Grid-item><div class="demo">ipsum</div></Grid-item>
