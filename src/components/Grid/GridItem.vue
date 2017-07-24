@@ -12,7 +12,11 @@ export default {
   },
   props: {
     width: {
-      type: [String, Number]
+      type: String,
+      validator: value => {
+        const split = value.split('/')
+        return value.test(/^[0-9]\/[0-9]$/g) && split[0] <= split[1]
+      }
     }
   },
   computed: {
