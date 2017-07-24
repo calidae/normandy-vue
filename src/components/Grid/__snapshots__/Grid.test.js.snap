@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`align 1`] = `
+
+<div class="o-grid o-grid--middle">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`auto 1`] = `
+
+<div class="o-grid o-grid--auto o-grid--liquid">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`default 1`] = `
+
+<div class="o-grid">
+</div>
+
+`;
+
+exports[`liquid 1`] = `
+
+<div class="o-grid o-grid--liquid">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`reverse 1`] = `
+
+<div class="o-grid o-grid--reverse">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`size 1`] = `
+
+<div class="o-grid o-grid--large">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`space 1`] = `
+
+<div class="o-grid o-grid--between">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`stretch 1`] = `
+
+<div class="o-grid o-grid--stretch">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`wrapped 1`] = `
+
+<div class="o-grid o-grid--wrapped">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
