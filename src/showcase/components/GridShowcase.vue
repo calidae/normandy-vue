@@ -39,6 +39,7 @@
     <h2>Size modifier</h2>
     <hr>
     <pre>prop: <b>size</b></pre>
+    <p>This modifier provides different gutter sizes.</p>
     <div v-for="size in size_values">
       <h3>{{ size }}</h3>
       <Grid v-bind="{ size }">
@@ -52,6 +53,7 @@
     <h2>Align modifier</h2>
     <hr>
     <pre>prop: <b>align</b></pre>
+    <p>This modifier change the items alignment without modifying its height.</p>
     <div v-for="align in align_values">
       <h3>{{ align }}</h3>
       <Grid v-bind="{ align }">
@@ -99,7 +101,7 @@
     <h2>Reverse modifier</h2>
     <hr>
     <pre>prop: <b>reverse</b></pre>
-    <p>This modifier will equal height of grid items.</p>
+    <p>This modifier will reverse its grid items.</p>
     <Grid reverse liquid>
       <Grid-item>
         <div class="demo">First</div>
@@ -139,6 +141,7 @@
     <h2>Wrapped modifier</h2>
     <hr>
     <pre>prop: <b>wrapped</b></pre>
+    <p>Wrap items with a padding instead of using the padding as a column gutter.</p>
     <h3><i>(default)</i></h3>
     <Grid wrapped liquid>
       <Grid-item v-for="i in [1,2,3]" :key="i">
