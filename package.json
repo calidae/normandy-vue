@@ -1,6 +1,6 @@
 {
   "name": "vue-objects",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A WIP collection of OOCSS Objects written in Vue",
   "author": "Adrià Fontcuberta <adria@calidae.com>",
   "main": "dist/lib/vue-objects.min.js",
@@ -81,7 +81,10 @@
     "npm": ">= 3.0.0"
   },
   "jest": {
-    "moduleFileExtensions": ["js", "vue"],
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
     "moduleNameMapper": {
       "^@[/](.+)": "<rootDir>/src/$1",
       "src/components/([^\\.]*)$": "<rootDir>/src/components/$1.vue",
