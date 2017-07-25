@@ -2,8 +2,7 @@
   <div class="o-block"
     :class="[
       align && `o-block--${align}`,
-      size && `o-block--${size}`,
-      { 'o-block--reverse': reverse }
+      size && `o-block--${size}`
     ]">
 
     <div class="o-block__img">
@@ -34,10 +33,6 @@ export default {
     alt: {
       type: String,
       required: true
-    },
-    reverse: {
-      type: Boolean,
-      default: false
     },
     size: {
       type: String,

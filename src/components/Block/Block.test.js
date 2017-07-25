@@ -42,16 +42,11 @@ describe('Block.vue', () => {
     })
   })
 
-  it('adds reverse class when reverse prop is provided', () => {
-    const wrapper = mount(Block, { propsData: { ...propsData, reverse: true } })
-    expect(wrapper.hasClass('o-block--reverse')).toBe(true)
-  })
-
   it('adds all optional classes when all props are provided', () => {
     const wrapper = mount(Block, {
-      propsData: { ...propsData, size: 'small', align: 'left', reverse: true }
+      propsData: { ...propsData, size: 'small', align: 'left' }
     })
-    expect(wrapper.hasClass('o-block--reverse')).toBe(true)
+
     expect(wrapper.hasClass('o-block--small')).toBe(true)
     expect(wrapper.hasClass('o-block--left')).toBe(true)
   })
@@ -80,12 +75,6 @@ describe('Block.vue', () => {
   it('breaks with invalid size prop value', () => {
     expect(() => {
       mount(Block, { propsData: { ...propsData, align: 'willfail' } })
-    }).toThrow()
-  })
-
-  it('breaks with invalid reverse prop value', () => {
-    expect(() => {
-      mount(Block, { propsData: { ...propsData, reverse: 'willfail' } })
     }).toThrow()
   })
 
