@@ -1,6 +1,6 @@
 {
   "name": "vue-objects",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A WIP collection of OOCSS Objects written in Vue",
   "author": "Adrià Fontcuberta <adria@calidae.com>",
   "main": "dist/lib/vue-objects.min.js",
