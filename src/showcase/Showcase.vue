@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="route in routes">
+    <div v-for="route in routes" :key="route.name">
       <router-link :to="route.path">{{ route.name }}</router-link>
     </div>
   </div>
@@ -45,7 +45,6 @@ h3 + p {
     outline: 2px dashed #aaa;
     background-color: #f1f1f2;
 }
-
 
 /**
  * Outline all BEM Elements.
