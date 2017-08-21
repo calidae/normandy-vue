@@ -8,12 +8,12 @@
       {{ slot }}
     </media>
 
-    <div v-for="(prop, propName) in optionalProps">
+    <div v-for="(prop, propName) in optionalProps" :key="propName">
       <h2>{{ propName }} modifier</h2>
       <hr>
       <pre>prop: <b>{{ propName }}</b></pre>
 
-      <div class="object-wrapper" v-for="value in prop">
+      <div class="object-wrapper" v-for="value in prop" :key="value">
         <h3>{{ value }}</h3>
         <media v-bind="{ src, alt, [propName]: value }">
           {{ slot }}

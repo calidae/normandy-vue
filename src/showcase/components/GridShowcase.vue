@@ -9,8 +9,6 @@
       <Grid-item><div class="demo">ipsum</div></Grid-item>
       <Grid-item><div class="demo">dolor sit amet</div></Grid-item>
     </Grid>
-
-
     <h2>Width</h2>
     <hr>
     <pre>prop: <b>width</b><br />values: any combination of <b>[1, 2, 3, 4, 5, 6]</b></pre>
@@ -19,8 +17,6 @@
         <div class="demo">1/{{ fraction }}</div>
       </Grid-item>
     </Grid>
-
-
     <h2>Nested grids</h2>
     <hr>
     <p>We can obviously nest grids to create complex layouts</p>
@@ -36,13 +32,11 @@
         </Grid>
       </Grid-item>
     </Grid>
-
-
     <h2>Size modifier</h2>
     <hr>
     <pre>prop: <b>size</b></pre>
     <p>This modifier provides different gutter sizes.</p>
-    <div v-for="size in size_values">
+    <div v-for="size in size_values" :key="size">
       <h3>{{ size }}</h3>
       <Grid v-bind="{ size }">
         <Grid-item width="1/3" v-for="i in [1,2,3]" :key="i">
@@ -50,13 +44,11 @@
         </Grid-item>
       </Grid>
     </div>
-
-
     <h2>Align modifier</h2>
     <hr>
     <pre>prop: <b>align</b></pre>
     <p>This modifier change the items alignment without modifying its height.</p>
-    <div v-for="align in align_values">
+    <div v-for="align in align_values" :key="align">
       <h3>{{ align }}</h3>
       <Grid v-bind="{ align }">
         <Grid-item width="1/3">
@@ -70,8 +62,6 @@
         </Grid-item>
       </Grid>
     </div>
-
-
     <h2>Liquid modifier</h2>
     <hr>
     <pre>prop: <b>liquid</b></pre>
@@ -81,8 +71,6 @@
         <div class="demo">auto</div>
       </Grid-item>
     </Grid>
-
-
     <h2>Stretch modifier</h2>
     <hr>
     <pre>prop: <b>stretch</b></pre>
@@ -98,8 +86,6 @@
         <div class="demo">1/3</div>
       </Grid-item>
     </Grid>
-
-
     <h2>Reverse modifier</h2>
     <hr>
     <pre>prop: <b>reverse</b></pre>
@@ -115,8 +101,6 @@
         <div class="demo">Last</div>
       </Grid-item>
     </Grid>
-
-
     <h2>Auto modifier</h2>
     <hr>
     <pre>prop: <b>auto</b></pre>
@@ -138,8 +122,6 @@
           <img src="http://fakeimg.pl/1280x960/">
       </Grid-item>
     </Grid>
-
-
     <h2>Wrapped modifier</h2>
     <hr>
     <pre>prop: <b>wrapped</b></pre>
@@ -150,7 +132,7 @@
         <div class="demo">1/3</div>
       </Grid-item>
     </Grid>
-    <div v-for="size in size_values">
+    <div v-for="size in size_values" :key="size">
       <h3>{{ size }}</h3>
       <Grid wrapped liquid :size="size">
         <Grid-item v-for="i in [1,2,3]" :key="i">
@@ -158,8 +140,6 @@
         </Grid-item>
       </Grid>
     </div>
-
-
   </div>
 </template>
 
