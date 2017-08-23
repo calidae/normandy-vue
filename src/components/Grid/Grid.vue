@@ -23,9 +23,6 @@ const SPACE_VALUES = ['around', 'between', 'center', 'end']
 
 export default {
   name: 'Grid',
-  data () {
-    return {}
-  },
   props: {
     align: {
       type: String,
@@ -59,6 +56,9 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  data () {
+    return {}
   }
 }
 </script>

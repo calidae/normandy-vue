@@ -7,9 +7,6 @@
 <script>
 export default {
   name: 'Grid-item',
-  data () {
-    return {}
-  },
   props: {
     width: {
       type: String,
@@ -18,6 +15,9 @@ export default {
         return value.match(/^[1-9]\/[1-9]$/g) && split[0] <= split[1]
       }
     }
+  },
+  data () {
+    return {}
   },
   computed: {
     computedStyle () {

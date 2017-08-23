@@ -22,9 +22,6 @@ const SIZE_VALUES = [ 'flush', 'tiny', 'small', 'large', 'huge' ]
 
 export default {
   name: 'Block',
-  data () {
-    return {}
-  },
   props: {
     src: {
       type: String,
@@ -42,6 +39,9 @@ export default {
       type: String,
       validator: value => VALIGN_VALUES.includes(value)
     }
+  },
+  data () {
+    return {}
   }
 }
 </script>

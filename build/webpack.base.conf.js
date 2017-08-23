@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    docs: './src/docs.js',
+    docs: './demo/index.js',
     ['vue-objects']: './src/lib.js'
   },
   output: {

@@ -31,10 +31,19 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-return-assign': 0,
-    'vue/no-shared-component-data': 'error',
-    'vue/no-side-effects-in-computed-properties': 'error',
-    'vue/v-bind-style': 'error',
-    'vue/v-on-style': 'error',
+    // vue-specific rules
+    'vue/attribute-hyphenation': [2, 'never'],
+    'vue/no-dupe-keys': 1,
+    'vue/no-reserved-keys': 2,
+    'vue/no-shared-component-data': 2,
+    'vue/no-side-effects-in-computed-properties': 2,
+    'vue/require-prop-types': 2,
+    'vue/require-render-return': 2,
+    'vue/require-valid-default-prop': 2,
+    'vue/return-in-computed-property': 2,
+    'vue/v-bind-style': 2,
+    'vue/v-on-style': 2,
+    'vue/order-in-components': 2
   },
   "globals": {
     "expect": true

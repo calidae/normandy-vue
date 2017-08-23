@@ -9,12 +9,12 @@
 <script>
 export default {
   name: 'component-header',
-  data () {
-    return {}
-  },
   props: {
     title: String,
     description: String
+  },
+  data () {
+    return {}
   }
 }
 </script>

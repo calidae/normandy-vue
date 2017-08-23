@@ -27,13 +27,11 @@
 
 <script>
 import ComponentHeader from '../ComponentHeader'
-import Media from '@/components/Media'
 
 export default {
   name: 'media-showcase',
   components: {
-    [ComponentHeader.name]: ComponentHeader,
-    [Media.name]: Media
+    [ComponentHeader.name]: ComponentHeader
   },
   data () {
     return {

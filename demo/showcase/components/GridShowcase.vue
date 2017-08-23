@@ -145,14 +145,11 @@
 
 <script>
 import ComponentHeader from '../ComponentHeader'
-import { Grid, GridItem } from '@/components/Grid'
 
 export default {
   name: 'grid-showcase',
   components: {
-    [ComponentHeader.name]: ComponentHeader,
-    [Grid.name]: Grid,
-    [GridItem.name]: GridItem
+    ComponentHeader
   },
   data () {
     return {

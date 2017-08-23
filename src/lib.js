@@ -1,10 +1,4 @@
-import Media from '@/components/Media'
-import Block from '@/components/Block'
-import { Grid, GridItem } from '@/components/Grid'
-
-export {
-  Media,
-  Grid,
-  GridItem,
-  Block
-}
+export { default as Media } from './components/Media'
+export { default as Grid } from './components/Grid'
+export { default as GridItem } from './components/Media'
+export { default as Block } from './components/Media'

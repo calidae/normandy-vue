@@ -27,13 +27,11 @@
 
 <script>
 import ComponentHeader from '../ComponentHeader'
-import Block from '@/components/Block'
 
 export default {
   name: 'block-showcase',
   components: {
-    [ComponentHeader.name]: ComponentHeader,
-    [Block.name]: Block
+    ComponentHeader
   },
   data () {
     return {

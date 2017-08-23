@@ -22,7 +22,7 @@ img {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #252526;
@@ -39,6 +39,14 @@ h2 {
   margin-top: 70px;
 }
 
+h3 {
+  margin-top: 40px;
+}
+
+h3 + p {
+  margin-top: 10px;
+}
+
 p {
   margin-top: 35px;
 }
@@ -48,4 +56,27 @@ pre {
   padding: 10px;
   font-size: 1.2em;
   line-height: 1.8em;
+}
+
+/**
+ * Outline all Object classes.
+ */
+
+[class^="o-"],
+[class*=" o-"] {
+    outline: 2px dashed #aaa;
+    background-color: #f1f1f2;
+}
+
+/**
+ * Outline all BEM Elements.
+ */
+
+[class*="__"] {
+    outline: 2px solid #f00;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.object-wrapper {
+  margin-top: 50px;
 }
