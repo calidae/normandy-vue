@@ -1,6 +1,6 @@
 {
-  "name": "vue-objects",
-  "version": "0.2.0-0",
+  "name": "normandy-vue",
+  "version": "0.1.0",
   "description": "A WIP collection of OOCSS Objects written in Vue",
   "author": "Adrià Fontcuberta <adria@calidae.com>",
   "main": "dist/lib/vue-objects.min.js",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/afontcu/vue-objects"
+    "url": "git+https://github.com/afontcu/vue-objects.git"
   },
   "dependencies": {
     "vue": "^2.4.2",
@@ -109,5 +109,15 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "bugs": {
+    "url": "https://github.com/afontcu/vue-objects/issues"
+  },
+  "homepage": "https://github.com/afontcu/vue-objects#readme",
+  "keywords": [
+    "css",
+    "vue",
+    "vuejs",
+    "bem"
   ]
 }
