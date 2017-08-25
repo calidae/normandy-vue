@@ -1,6 +1,6 @@
 # Vue CSS Objects
 
-CSS Objects implementation in VueJS.
+CSS Objects implementation in VueJS with Normandy CSS class naming.
 
 
 ## Features
