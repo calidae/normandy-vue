@@ -4,9 +4,9 @@
       title="Block"
       description="Stacked image-with-text object. A simple abstraction to cover a very commonly occurring design pattern." />
 
-    <block v-bind="{ src, alt }">
+    <Block v-bind="{ src, alt }">
       {{ slot }}
-    </block>
+    </Block>
 
     <div v-for="(prop, propName) in optionalProps" :key="propName">
       <h2>{{ propName }} modifier</h2>
@@ -15,9 +15,9 @@
 
       <div class="object-wrapper" v-for="value in prop" :key="value">
         <h3>{{ value }}</h3>
-        <block v-bind="{ src, alt, [propName]: value }">
+        <Block v-bind="{ src, alt, [propName]: value }">
           {{ slot }}
-        </block>
+        </Block>
       </div>
 
     </div>
