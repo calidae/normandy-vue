@@ -20,30 +20,16 @@
 <script>
 const VALIGN_VALUES = [ 'center', 'bottom', 'stretch' ]
 const SIZE_VALUES = [ 'flush', 'tiny', 'small', 'large', 'huge' ]
+import VueTypes from 'vue-types'
 
 export default {
   name: 'Media',
   props: {
-    src: {
-      type: String,
-      required: true
-    },
-    alt: {
-      type: String,
-      required: true
-    },
-    reverse: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      validator: value => SIZE_VALUES.includes(value)
-    },
-    align: {
-      type: String,
-      validator: value => VALIGN_VALUES.includes(value)
-    }
+    src: VueTypes.string.isRequired,
+    alt: VueTypes.string.isRequired,
+    size: VueTypes.oneOf(SIZE_VALUES),
+    align: VueTypes.oneOf(VALIGN_VALUES),
+    reverse: VueTypes.bool.def(false)
   },
   data () {
     return {}

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import VueTypes from 'vue-types'
 const ALIGN_VALUES = ['bottom', 'middle']
 const SIZE_VALUES = ['flush', 'tiny', 'small', 'large', 'huge']
 const SPACE_VALUES = ['around', 'between', 'center', 'end']
@@ -24,38 +25,14 @@ const SPACE_VALUES = ['around', 'between', 'center', 'end']
 export default {
   name: 'Grid',
   props: {
-    align: {
-      type: String,
-      validator: value => ALIGN_VALUES.includes(value)
-    },
-    size: {
-      type: String,
-      validator: value => SIZE_VALUES.includes(value)
-    },
-    space: {
-      type: String,
-      validator: value => SPACE_VALUES.includes(value)
-    },
-    stretch: {
-      type: Boolean,
-      default: false
-    },
-    auto: {
-      type: Boolean,
-      default: false
-    },
-    liquid: {
-      type: Boolean,
-      default: false
-    },
-    reverse: {
-      type: Boolean,
-      default: false
-    },
-    wrapped: {
-      type: Boolean,
-      default: false
-    }
+    align: VueTypes.oneOf(ALIGN_VALUES),
+    size: VueTypes.oneOf(SIZE_VALUES),
+    space: VueTypes.oneOf(SPACE_VALUES),
+    stretch: VueTypes.bool.def(false),
+    auto: VueTypes.bool.def(false),
+    liquid: VueTypes.bool.def(false),
+    reverse: VueTypes.bool.def(false),
+    wrapped: VueTypes.bool.def(false)
   },
   data () {
     return {}
