@@ -13,9 +13,10 @@
 </template>
 
 <script>
-const VALIGN_VALUES = [ 'center', 'bottom', 'stretch' ]
-const SIZE_VALUES = [ 'flush', 'tiny', 'small', 'large', 'huge' ]
 import VueTypes from 'vue-types'
+import { SIZE_VALUES } from '@/constraints'
+
+const VALIGN_VALUES = ['center', 'bottom', 'stretch']
 
 export default {
   name: 'Media',

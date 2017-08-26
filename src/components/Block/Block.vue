@@ -13,8 +13,10 @@
 </template>
 
 <script>
-const VALIGN_VALUES = [ 'left', 'right' ]
-const SIZE_VALUES = [ 'flush', 'tiny', 'small', 'large', 'huge' ]
+import VueTypes from 'vue-types'
+import { SIZE_VALUES } from '@/constraints'
+
+const ALIGN_VALUES = ['left', 'right']
 
 export default {
   name: 'Block',

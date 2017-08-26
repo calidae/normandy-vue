@@ -6,9 +6,9 @@
 
 <script>
 import VueTypes from 'vue-types'
+import { SIZE_VALUES, SPACE_VALUES } from '@/constraints'
+
 const ALIGN_VALUES = ['bottom', 'middle']
-const SIZE_VALUES = ['flush', 'tiny', 'small', 'large', 'huge']
-const SPACE_VALUES = ['around', 'between', 'center', 'end']
 
 export default {
   name: 'Grid',
