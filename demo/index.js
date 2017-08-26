@@ -12,7 +12,7 @@ import {
 
 Vue.component('Media', Media)
 Vue.component('Grid', Grid)
-Vue.component('GridItem', GridItem)
+Vue.component('Grid-item', GridItem)
 Vue.component('Block', Block)
 
 Vue.config.productionTip = false
