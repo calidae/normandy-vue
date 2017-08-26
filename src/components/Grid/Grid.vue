@@ -1,17 +1,5 @@
 <template>
-  <div class="o-grid"
-    :class="[
-      align && `o-grid--${align}`,
-      size && `o-grid--${size}`,
-      space && `o-grid--${space}`,
-      {
-        'o-grid--stretch': stretch,
-        'o-grid--wrapped': wrapped,
-        'o-grid--liquid': liquid,
-        'o-grid--auto o-grid--liquid': auto,
-        'o-grid--reverse': reverse
-      }
-    ]">
+  <div class="o-grid" :class="[ classes ]">
     <slot></slot>
   </div>
 </template>
@@ -36,6 +24,21 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    classes () {
+      return {
+        [`o-grid--${this.align}`]: this.align,
+        [`o-grid--${this.size}`]: this.size,
+        [`o-grid--${this.space}`]: this.space,
+        'o-grid--stretch': this.stretch,
+        'o-grid--wrapped': this.wrapped,
+        'o-grid--liquid': this.liquid,
+        'o-grid--auto o-grid--liquid': this.auto,
+        'o-grid--reverse': this.reverse
+
+      }
+    }
   }
 }
 </script>

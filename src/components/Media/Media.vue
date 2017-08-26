@@ -1,10 +1,5 @@
 <template>
-  <div class="o-media"
-    :class="[
-      align && `o-media--${align}`,
-      size && `o-media--${size}`,
-      { 'o-media--reverse': reverse }
-    ]">
+  <div class="o-media" :class="[ classes ]">
 
     <div class="o-media__img">
       <img v-bind="{ src, alt }" />
@@ -33,6 +28,15 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    classes () {
+      return {
+        [`o-media--${this.align}`]: this.align,
+        [`o-media--${this.size}`]: this.size,
+        'o-media--reverse': this.reverse
+      }
+    }
   }
 }
 </script>
