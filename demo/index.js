@@ -8,7 +8,7 @@ import {
   Grid,
   GridItem,
   Block
-} from '@/lib'
+} from '../src/lib'
 
 Vue.component('Media', Media)
 Vue.component('Grid', Grid)
