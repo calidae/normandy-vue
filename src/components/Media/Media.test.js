@@ -25,6 +25,22 @@ describe('Media.vue', () => {
     expect(wrapper.first('.Dummy')).toBeTruthy()
   })
 
+  it('src prop is required, is a String and validates correctly', () => {
+    const wrapper = mount(Media, { propsData })
+    const src = wrapper.vm.$options.props.src
+
+    expect(src.required).toBeTruthy()
+    expect(src.type).toBe(String)
+  })
+
+  it('alt prop is required, is a String and validates correctly', () => {
+    const wrapper = mount(Media, { propsData })
+    const alt = wrapper.vm.$options.props.alt
+
+    expect(alt.required).toBeTruthy()
+    expect(alt.type).toBe(String)
+  })
+
   it('adds size class when size prop is provided', () => {
     const values = ['flush', 'tiny', 'small', 'large', 'huge']
 
@@ -77,13 +93,6 @@ describe('Media.vue', () => {
 
   it('breaks when required props are not provided', () => {
     expect(() => mount(Media)).toThrow()
-  })
-
-  it('breaks with invalid size prop value', () => {
-    const size = 'invalidProp'
-    expect(() => {
-      mount(Media, { propsData: { ...propsData, size } })
-    }).toThrow()
   })
 
   it('breaks with invalid size prop value', () => {

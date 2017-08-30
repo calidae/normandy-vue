@@ -25,6 +25,22 @@ describe('Block.vue', () => {
     expect(wrapper.first('.Dummy')).toBeTruthy()
   })
 
+  it('src prop is required, is a String and validates correctly', () => {
+    const wrapper = mount(Block, { propsData })
+    const src = wrapper.vm.$options.props.src
+
+    expect(src.required).toBeTruthy()
+    expect(src.type).toBe(String)
+  })
+
+  it('alt prop is required, is a String and validates correctly', () => {
+    const wrapper = mount(Block, { propsData })
+    const alt = wrapper.vm.$options.props.alt
+
+    expect(alt.required).toBeTruthy()
+    expect(alt.type).toBe(String)
+  })
+
   it('adds size class when size prop is provided', () => {
     const values = ['flush', 'tiny', 'small', 'large', 'huge']
 
