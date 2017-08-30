@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import ComponentHeader from '../ComponentHeader'
+import ComponentHeader from './ComponentHeader'
 
 export default {
   name: 'media-showcase',
