@@ -8,9 +8,10 @@ const propsData = {
 }
 
 describe('Media.vue', () => {
-  beforeAll(() => console.error = jest.fn(error => {
-    throw new Error(error)
-  }))
+  beforeAll(() => {
+    console.error = jest.fn(error => { throw new Error(error) })
+    console.warn = jest.fn(warn => { throw new Error(warn) })
+  })
 
   it('renders correct nodes when required props are provided', () => {
     const wrapper = mount(Media, { propsData })
@@ -28,7 +29,8 @@ describe('Media.vue', () => {
     const values = ['flush', 'tiny', 'small', 'large', 'huge']
 
     values.forEach((size) => {
-      const wrapper = mount(Media, { propsData: { ...propsData, size } })
+      const wrapper = mount(Media, { propsData })
+      wrapper.setProps({ size })
       expect(wrapper.hasClass(`o-media--${size}`)).toBe(true)
     })
   })
@@ -37,19 +39,24 @@ describe('Media.vue', () => {
     const values = ['center', 'bottom', 'stretch']
 
     values.forEach((align) => {
-      const wrapper = mount(Media, { propsData: { ...propsData, align } })
+      const wrapper = mount(Media, { propsData })
+      wrapper.setProps({ align })
       expect(wrapper.hasClass(`o-media--${align}`)).toBe(true)
     })
   })
 
   it('adds reverse class when reverse prop is provided', () => {
-    const wrapper = mount(Media, { propsData: { ...propsData, reverse: true } })
+    const wrapper = mount(Media, { propsData })
+    wrapper.setProps({ reverse: true })
     expect(wrapper.hasClass('o-media--reverse')).toBe(true)
   })
 
   it('adds all optional classes when all props are provided', () => {
-    const wrapper = mount(Media, {
-      propsData: { ...propsData, size: 'small', align: 'stretch', reverse: true }
+    const wrapper = mount(Media, { propsData })
+    wrapper.setProps({
+      size: 'small',
+      align: 'stretch',
+      reverse: true
     })
     expect(wrapper.hasClass('o-media--reverse')).toBe(true)
     expect(wrapper.hasClass('o-media--small')).toBe(true)
@@ -57,12 +64,13 @@ describe('Media.vue', () => {
   })
 
   it('changes size prop when its class', () => {
-    const wrapper = mount(Media, { propsData: { ...propsData, size: 'large' } })
+    const wrapper = mount(Media, { propsData })
+
+    wrapper.setProps({ size: 'large' })
     expect(wrapper.hasClass('o-media--large')).toBe(true)
     expect(wrapper.hasClass('o-media--small')).toBe(false)
 
     wrapper.setProps({ size: 'small' })
-
     expect(wrapper.hasClass('o-media--small')).toBe(true)
     expect(wrapper.hasClass('o-media--large')).toBe(false)
   })
@@ -72,20 +80,23 @@ describe('Media.vue', () => {
   })
 
   it('breaks with invalid size prop value', () => {
+    const size = 'invalidProp'
     expect(() => {
-      mount(Media, { propsData: { ...propsData, size: 'willfail' } })
+      mount(Media, { propsData: { ...propsData, size } })
     }).toThrow()
   })
 
   it('breaks with invalid size prop value', () => {
+    const align = 'invalidProp'
     expect(() => {
-      mount(Media, { propsData: { ...propsData, align: 'willfail' } })
+      mount(Media, { propsData: { ...propsData, align } })
     }).toThrow()
   })
 
   it('breaks with invalid reverse prop value', () => {
+    const reverse = 'invalidProp'
     expect(() => {
-      mount(Media, { propsData: { ...propsData, reverse: 'willfail' } })
+      mount(Media, { propsData: { ...propsData, reverse } })
     }).toThrow()
   })
 

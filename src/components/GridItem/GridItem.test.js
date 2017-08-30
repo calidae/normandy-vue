@@ -3,9 +3,10 @@ import { mount } from 'avoriaz'
 import Dummy from '@/Dummy'
 
 describe('GridItem.vue', () => {
-  beforeAll(() => console.error = jest.fn(error => {
-    throw new Error(error)
-  }))
+  beforeAll(() => {
+    console.error = jest.fn(error => { throw new Error(error) })
+    console.warn = jest.fn(warn => { throw new Error(warn) })
+  })
 
   it('renders correct nodes when required props are provided', () => {
     const wrapper = mount(GridItem)

@@ -3,9 +3,10 @@ import { mount } from 'avoriaz'
 import Dummy from '@/Dummy'
 
 describe('Grid.vue', () => {
-  beforeAll(() => console.error = jest.fn(error => {
-    throw new Error(error)
-  }))
+  beforeAll(() => {
+    console.error = jest.fn(error => { throw new Error(error) })
+    console.warn = jest.fn(warn => { throw new Error(warn) })
+  })
 
   it('renders correct nodes when required props are provided', () => {
     const wrapper = mount(Grid)
@@ -99,53 +100,59 @@ describe('Grid.vue', () => {
   })
 
   it('changes size prop when its class', () => {
-    const wrapper = mount(Grid, { propsData: { size: 'large' } })
+    const wrapper = mount(Grid)
+
+    wrapper.setProps({ size: 'large' })
     expect(wrapper.hasClass('o-grid--large')).toBe(true)
     expect(wrapper.hasClass('o-grid--small')).toBe(false)
 
     wrapper.setProps({ size: 'small' })
-
     expect(wrapper.hasClass('o-grid--small')).toBe(true)
     expect(wrapper.hasClass('o-grid--large')).toBe(false)
   })
 
   it('changes align prop when its class', () => {
-    const wrapper = mount(Grid, { propsData: { align: 'bottom' } })
+    const wrapper = mount(Grid)
+
+    wrapper.setProps({ align: 'bottom' })
     expect(wrapper.hasClass('o-grid--bottom')).toBe(true)
     expect(wrapper.hasClass('o-grid--middle')).toBe(false)
 
     wrapper.setProps({ align: 'middle' })
-
     expect(wrapper.hasClass('o-grid--middle')).toBe(true)
     expect(wrapper.hasClass('o-grid--bottom')).toBe(false)
   })
 
   it('changes space prop when its class', () => {
-    const wrapper = mount(Grid, { propsData: { space: 'center' } })
+    const wrapper = mount(Grid)
+
+    wrapper.setProps({ space: 'center' })
     expect(wrapper.hasClass('o-grid--center')).toBe(true)
     expect(wrapper.hasClass('o-grid--around')).toBe(false)
 
     wrapper.setProps({ space: 'around' })
-
     expect(wrapper.hasClass('o-grid--around')).toBe(true)
     expect(wrapper.hasClass('o-grid--center')).toBe(false)
   })
 
   it('breaks with invalid size prop value', () => {
+    const size = 'invalidProp'
     expect(() => {
-      mount(Grid, { propsData: { size: 'willfail' } })
+      mount(Grid, { propsData: { size } })
     }).toThrow()
   })
 
   it('breaks with invalid align prop value', () => {
+    const align = 'invalidProp'
     expect(() => {
-      mount(Grid, { propsData: { align: 'willfail' } })
+      mount(Grid, { propsData: { align } })
     }).toThrow()
   })
 
   it('breaks with invalid space prop value', () => {
+    const space = 'invalidProp'
     expect(() => {
-      mount(Grid, { propsData: { space: 'willfail' } })
+      mount(Grid, { propsData: { space } })
     }).toThrow()
   })
 

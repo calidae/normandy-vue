@@ -8,9 +8,10 @@ const propsData = {
 }
 
 describe('Block.vue', () => {
-  beforeAll(() => console.error = jest.fn(error => {
-    throw new Error(error)
-  }))
+  beforeAll(() => {
+    console.error = jest.fn(error => { throw new Error(error) })
+    console.warn = jest.fn(warn => { throw new Error(warn) })
+  })
 
   it('renders correct nodes when required props are provided', () => {
     const wrapper = mount(Block, { propsData })
@@ -28,7 +29,8 @@ describe('Block.vue', () => {
     const values = ['flush', 'tiny', 'small', 'large', 'huge']
 
     values.forEach((size) => {
-      const wrapper = mount(Block, { propsData: { ...propsData, size } })
+      const wrapper = mount(Block, { propsData })
+      wrapper.setProps({ size })
       expect(wrapper.hasClass(`o-block--${size}`)).toBe(true)
     })
   })
@@ -37,14 +39,17 @@ describe('Block.vue', () => {
     const values = ['left', 'right']
 
     values.forEach((align) => {
-      const wrapper = mount(Block, { propsData: { ...propsData, align } })
+      const wrapper = mount(Block, { propsData })
+      wrapper.setProps({ align })
       expect(wrapper.hasClass(`o-block--${align}`)).toBe(true)
     })
   })
 
   it('adds all optional classes when all props are provided', () => {
-    const wrapper = mount(Block, {
-      propsData: { ...propsData, size: 'small', align: 'left' }
+    const wrapper = mount(Block, { propsData })
+    wrapper.setProps({
+      size: 'small',
+      align: 'left'
     })
 
     expect(wrapper.hasClass('o-block--small')).toBe(true)
@@ -52,12 +57,13 @@ describe('Block.vue', () => {
   })
 
   it('changes size prop when its class', () => {
-    const wrapper = mount(Block, { propsData: { ...propsData, size: 'large' } })
+    const wrapper = mount(Block, { propsData })
+
+    wrapper.setProps({ size: 'large' })
     expect(wrapper.hasClass('o-block--large')).toBe(true)
     expect(wrapper.hasClass('o-block--small')).toBe(false)
 
     wrapper.setProps({ size: 'small' })
-
     expect(wrapper.hasClass('o-block--small')).toBe(true)
     expect(wrapper.hasClass('o-block--large')).toBe(false)
   })
@@ -67,14 +73,16 @@ describe('Block.vue', () => {
   })
 
   it('breaks with invalid size prop value', () => {
+    const size = 'invalidProp'
     expect(() => {
-      mount(Block, { propsData: { ...propsData, size: 'willfail' } })
+      mount(Block, { propsData: { ...propsData, size } })
     }).toThrow()
   })
 
-  it('breaks with invalid size prop value', () => {
+  it('breaks with invalid align prop value', () => {
+    const align = 'invalidProp'
     expect(() => {
-      mount(Block, { propsData: { ...propsData, align: 'willfail' } })
+      mount(Block, { propsData: { ...propsData, align } })
     }).toThrow()
   })
 
