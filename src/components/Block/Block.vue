@@ -32,8 +32,8 @@ export default {
   computed: {
     classes () {
       return {
-        [`o-media--${this.align}`]: this.align,
-        [`o-media--${this.size}`]: this.size
+        [`o-block--${this.align}`]: this.align,
+        [`o-block--${this.size}`]: this.size
       }
     }
   }
