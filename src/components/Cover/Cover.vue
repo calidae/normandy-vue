@@ -10,13 +10,15 @@
 
 <script>
 import VueTypes from 'vue-types'
-import { SIZE_VALUES } from '@/constraints'
+import { SIZE_VALUES, ALIGN_VALUES, VALIGN_VALUES } from '@/constraints'
 
 export default {
   name: 'Cover',
   props: {
     src: VueTypes.string.isRequired,
-    size: VueTypes.oneOf(SIZE_VALUES)
+    size: VueTypes.oneOf(SIZE_VALUES),
+    align: VueTypes.oneOf(ALIGN_VALUES),
+    valign: VueTypes.oneOf(VALIGN_VALUES)
   },
   data () {
     return {}
@@ -24,6 +26,8 @@ export default {
   computed: {
     classes () {
       return {
+        [`o-cover--${this.valign}`]: this.valign,
+        [`o-cover--${this.align}`]: this.align,
         [`o-cover--${this.size}`]: this.size
       }
     },
