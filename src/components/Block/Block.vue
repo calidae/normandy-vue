@@ -14,9 +14,7 @@
 
 <script>
 import VueTypes from 'vue-types'
-import { SIZE_VALUES } from '@/constraints'
-
-const ALIGN_VALUES = ['left', 'right']
+import { ALIGN_VALUES, SIZE_VALUES } from '@/constraints'
 
 export default {
   name: 'Block',
