@@ -4,7 +4,7 @@
       title="Cover"
       description="Place any text as a cover from an image" />
 
-    <Cover :src="src" :class="classes">
+    <Cover :src="src">
       {{ slot }}
     </Cover>
 
@@ -15,7 +15,7 @@
 
       <div class="object-wrapper" v-for="value in prop" :key="value">
         <h3>{{ value }}</h3>
-        <Cover v-bind="{ src, [propName]: value }" :class="classes">
+        <Cover v-bind="{ src, [propName]: value }">
           {{ slot }}
         </Cover>
       </div>
@@ -31,16 +31,15 @@ import ComponentHeader from './ComponentHeader'
 export default {
   name: 'cover-showcase',
   components: {
-    [ComponentHeader.name]: ComponentHeader
+    ComponentHeader
   },
   data () {
     return {
-      src: 'https://unsplash.it/400/200',
+      src: 'https://unsplash.it/960/400',
       slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
       optionalProps: {
         size: [ 'flush', 'tiny', 'small', 'large', 'huge' ]
-      },
-      classes: ['u-1/4', 'u-margin-horizontal-auto']
+      }
     }
   }
 }
