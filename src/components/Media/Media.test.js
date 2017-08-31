@@ -51,13 +51,13 @@ describe('Media.vue', () => {
     })
   })
 
-  it('adds align class when align prop is provided', () => {
-    const values = ['center', 'bottom', 'stretch']
+  it('adds valign class when valign prop is provided', () => {
+    const values = ['center', 'bottom']
 
-    values.forEach((align) => {
+    values.forEach((valign) => {
       const wrapper = mount(Media, { propsData })
-      wrapper.setProps({ align })
-      expect(wrapper.hasClass(`o-media--${align}`)).toBe(true)
+      wrapper.setProps({ valign })
+      expect(wrapper.hasClass(`o-media--${valign}`)).toBe(true)
     })
   })
 
@@ -67,16 +67,22 @@ describe('Media.vue', () => {
     expect(wrapper.hasClass('o-media--reverse')).toBe(true)
   })
 
+  it('adds stretch class when stretch prop is provided', () => {
+    const wrapper = mount(Media, { propsData })
+    wrapper.setProps({ stretch: true })
+    expect(wrapper.hasClass('o-media--stretch')).toBe(true)
+  })
+
   it('adds all optional classes when all props are provided', () => {
     const wrapper = mount(Media, { propsData })
     wrapper.setProps({
       size: 'small',
-      align: 'stretch',
+      valign: 'middle',
       reverse: true
     })
     expect(wrapper.hasClass('o-media--reverse')).toBe(true)
     expect(wrapper.hasClass('o-media--small')).toBe(true)
-    expect(wrapper.hasClass('o-media--stretch')).toBe(true)
+    expect(wrapper.hasClass('o-media--middle')).toBe(true)
   })
 
   it('changes size prop when its class', () => {
@@ -96,9 +102,9 @@ describe('Media.vue', () => {
   })
 
   it('breaks with invalid size prop value', () => {
-    const align = 'invalidProp'
+    const valign = 'invalidProp'
     expect(() => {
-      mount(Media, { propsData: { ...propsData, align } })
+      mount(Media, { propsData: { ...propsData, valign } })
     }).toThrow()
   })
 

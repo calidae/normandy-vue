@@ -24,12 +24,12 @@ describe('Grid.vue', () => {
     expect(wrapper.html()).toMatchSnapshot('default')
   })
 
-  it('adds align class when align prop is provided', () => {
+  it('adds valign class when valign prop is provided', () => {
     const values = ['bottom', 'middle']
 
-    values.forEach((align) => {
-      const wrapper = mount(Grid, { propsData: { align } })
-      expect(wrapper.hasClass(`o-grid--${align}`)).toBe(true)
+    values.forEach((valign) => {
+      const wrapper = mount(Grid, { propsData: { valign } })
+      expect(wrapper.hasClass(`o-grid--${valign}`)).toBe(true)
     })
   })
 
@@ -80,7 +80,7 @@ describe('Grid.vue', () => {
     const wrapper = mount(Grid, {
       propsData: {
         size: 'small',
-        align: 'middle',
+        valign: 'middle',
         space: 'end',
         reverse: true,
         stretch: true,
@@ -111,14 +111,14 @@ describe('Grid.vue', () => {
     expect(wrapper.hasClass('o-grid--large')).toBe(false)
   })
 
-  it('changes align prop when its class', () => {
+  it('changes valign prop when its class', () => {
     const wrapper = mount(Grid)
 
-    wrapper.setProps({ align: 'bottom' })
+    wrapper.setProps({ valign: 'bottom' })
     expect(wrapper.hasClass('o-grid--bottom')).toBe(true)
     expect(wrapper.hasClass('o-grid--middle')).toBe(false)
 
-    wrapper.setProps({ align: 'middle' })
+    wrapper.setProps({ valign: 'middle' })
     expect(wrapper.hasClass('o-grid--middle')).toBe(true)
     expect(wrapper.hasClass('o-grid--bottom')).toBe(false)
   })
@@ -142,10 +142,10 @@ describe('Grid.vue', () => {
     }).toThrow()
   })
 
-  it('breaks with invalid align prop value', () => {
-    const align = 'invalidProp'
+  it('breaks with invalid valign prop value', () => {
+    const valign = 'invalidProp'
     expect(() => {
-      mount(Grid, { propsData: { align } })
+      mount(Grid, { propsData: { valign } })
     }).toThrow()
   })
 
@@ -164,12 +164,12 @@ describe('Grid.vue', () => {
     expect(wrapper.html()).toMatchSnapshot('size')
   })
 
-  it('renders an snapshot with modifier class when align prop is provided', () => {
+  it('renders an snapshot with modifier class when valign prop is provided', () => {
     const wrapper = mount(Grid, {
       slots: { default: Dummy },
-      propsData: { align: 'middle' }
+      propsData: { valign: 'middle' }
     })
-    expect(wrapper.html()).toMatchSnapshot('align')
+    expect(wrapper.html()).toMatchSnapshot('valign')
   })
 
   it('renders an snapshot with modifier class when space prop is provided', () => {

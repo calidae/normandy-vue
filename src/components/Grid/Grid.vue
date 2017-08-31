@@ -6,14 +6,12 @@
 
 <script>
 import VueTypes from 'vue-types'
-import { SIZE_VALUES, SPACE_VALUES } from '@/constraints'
-
-const ALIGN_VALUES = ['bottom', 'middle']
+import { VALIGN_VALUES, SIZE_VALUES, SPACE_VALUES } from '@/constraints'
 
 export default {
   name: 'Grid',
   props: {
-    align: VueTypes.oneOf(ALIGN_VALUES),
+    valign: VueTypes.oneOf(VALIGN_VALUES),
     size: VueTypes.oneOf(SIZE_VALUES),
     space: VueTypes.oneOf(SPACE_VALUES),
     stretch: VueTypes.bool.def(false),
@@ -28,7 +26,7 @@ export default {
   computed: {
     classes () {
       return {
-        [`o-grid--${this.align}`]: this.align,
+        [`o-grid--${this.valign}`]: this.valign,
         [`o-grid--${this.size}`]: this.size,
         [`o-grid--${this.space}`]: this.space,
         'o-grid--stretch': this.stretch,

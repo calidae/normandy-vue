@@ -14,9 +14,7 @@
 
 <script>
 import VueTypes from 'vue-types'
-import { SIZE_VALUES } from '@/constraints'
-
-const VALIGN_VALUES = ['center', 'bottom', 'stretch']
+import { VALIGN_VALUES, SIZE_VALUES } from '@/constraints'
 
 export default {
   name: 'Media',
@@ -24,7 +22,8 @@ export default {
     src: VueTypes.string.isRequired,
     alt: VueTypes.string.isRequired,
     size: VueTypes.oneOf(SIZE_VALUES),
-    align: VueTypes.oneOf(VALIGN_VALUES),
+    valign: VueTypes.oneOf(VALIGN_VALUES),
+    stretch: VueTypes.bool.def(false),
     reverse: VueTypes.bool.def(false)
   },
   data () {
@@ -33,8 +32,9 @@ export default {
   computed: {
     classes () {
       return {
-        [`o-media--${this.align}`]: this.align,
+        [`o-media--${this.valign}`]: this.valign,
         [`o-media--${this.size}`]: this.size,
+        'o-media--stretch': this.stretch,
         'o-media--reverse': this.reverse
       }
     }
