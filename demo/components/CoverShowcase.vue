@@ -4,7 +4,7 @@
       title="Cover"
       description="Place any text as a cover from an image" />
 
-    <Cover v-bind="{ src, alt }">
+    <Cover :src="src" :class="classes">
       {{ slot }}
     </Cover>
 
@@ -15,7 +15,7 @@
 
       <div class="object-wrapper" v-for="value in prop" :key="value">
         <h3>{{ value }}</h3>
-        <Cover v-bind="{ src, alt, [propName]: value }">
+        <Cover v-bind="{ src, [propName]: value }" :class="classes">
           {{ slot }}
         </Cover>
       </div>
@@ -35,14 +35,20 @@ export default {
   },
   data () {
     return {
-      src: 'http://via.placeholder.com/350x150',
-      alt: 'logo',
-      slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, reiciendis fugiat ut voluptate fugit quisquam modi maiores, perspiciatis quasi praesentium ab vel at repellat amet atque? Veniam, officia, sint.',
+      src: 'https://unsplash.it/400/200',
+      slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
       optionalProps: {
-        size: [ 'flush', 'tiny', 'small', 'large', 'huge' ],
-        valign: [ 'middle', 'bottom' ]
-      }
+        size: [ 'flush', 'tiny', 'small', 'large', 'huge' ]
+      },
+      classes: ['u-1/4', 'u-margin-horizontal-auto']
     }
   }
 }
 </script>
+
+<style scoped>
+  .o-cover {
+    height: 250px;
+  }
+</style>
+
