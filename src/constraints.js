@@ -12,3 +12,13 @@ export const SPACE_VALUES = [
   'center',
   'end'
 ]
+
+export const VALIGN_VALUES = [
+  'middle',
+  'bottom'
+]
+
+export const ALIGN_VALUES = [
+  'left',
+  'right'
+]
