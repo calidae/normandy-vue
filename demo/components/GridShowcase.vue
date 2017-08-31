@@ -12,6 +12,7 @@
     <h2>Width</h2>
     <hr>
     <pre>prop: <b>width</b><br />values: any combination of <b>[1, 2, 3, 4, 5, 6]</b></pre>
+    <br />
     <Grid v-for="(fraction, i) in width_values" :key="i">
       <Grid-item :width="`1/${fraction}`" v-for="(elem, j) in fraction" :key="j">
         <div class="demo">1/{{ fraction }}</div>
@@ -19,7 +20,7 @@
     </Grid>
     <h2>Nested grids</h2>
     <hr>
-    <p>We can obviously nest grids to create complex layouts</p>
+    <p>We can obviously nest grids to create complex layouts.</p>
     <Grid>
       <Grid-item width="1/2">
         <div class="demo">1/2</div>
@@ -48,9 +49,9 @@
     <hr>
     <pre>prop: <b>align</b></pre>
     <p>This modifier change the items alignment without modifying its height.</p>
-    <div v-for="align in align_values" :key="align">
-      <h3>{{ align }}</h3>
-      <Grid v-bind="{ align }">
+    <div v-for="valign in valign_values" :key="valign">
+      <h3>{{ valign }}</h3>
+      <Grid v-bind="{ valign }">
         <Grid-item width="1/3">
           <div class="demo">1/3</div>
         </Grid-item>
@@ -158,7 +159,7 @@ export default {
       slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, reiciendis fugiat.',
       width_values: [1, 2, 3, 4, 5, 6],
       size_values: ['flush', 'tiny', 'small', 'large', 'huge'],
-      align_values: ['bottom', 'middle'],
+      valign_values: ['bottom', 'middle'],
       space_values: ['around', 'between', 'center', 'end'],
       liquid_values: ['liquid'],
       stretch_values: ['stretch'],

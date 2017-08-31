@@ -40,8 +40,9 @@ export default {
       slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, reiciendis fugiat ut voluptate fugit quisquam modi maiores, perspiciatis quasi praesentium ab vel at repellat amet atque? Veniam, officia, sint.',
       optionalProps: {
         size: [ 'flush', 'tiny', 'small', 'large', 'huge' ],
-        align: [ 'center', 'bottom', 'stretch' ],
-        reverse: [true]
+        valign: [ 'middle', 'bottom' ],
+        reverse: [true],
+        stretch: [true]
       }
     }
   }
