@@ -14,6 +14,7 @@ export const SPACE_VALUES = [
 ]
 
 export const VALIGN_VALUES = [
+  'top',
   'middle',
   'bottom'
 ]
