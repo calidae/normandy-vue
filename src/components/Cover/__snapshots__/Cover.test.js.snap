@@ -3,7 +3,7 @@
 exports[`Cover.vue renders an snapshot 1`] = `
 
 <div class="o-cover"
-     style="background-image: url();"
+     style="background-image: url(http://example.com);"
 >
   <div class="o-cover__body">
   </div>
