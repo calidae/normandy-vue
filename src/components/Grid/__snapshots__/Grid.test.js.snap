@@ -3,7 +3,7 @@
 exports[`auto 1`] = `
 
 <div class="o-grid o-grid--auto o-grid--liquid">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 
@@ -19,7 +19,7 @@ exports[`default 1`] = `
 exports[`liquid 1`] = `
 
 <div class="o-grid o-grid--liquid">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 
@@ -28,7 +28,7 @@ exports[`liquid 1`] = `
 exports[`reverse 1`] = `
 
 <div class="o-grid o-grid--reverse">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 
@@ -37,7 +37,7 @@ exports[`reverse 1`] = `
 exports[`size 1`] = `
 
 <div class="o-grid o-grid--large">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 
@@ -46,7 +46,7 @@ exports[`size 1`] = `
 exports[`space 1`] = `
 
 <div class="o-grid o-grid--between">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 
@@ -55,7 +55,7 @@ exports[`space 1`] = `
 exports[`stretch 1`] = `
 
 <div class="o-grid o-grid--stretch">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 
@@ -64,7 +64,7 @@ exports[`stretch 1`] = `
 exports[`valign 1`] = `
 
 <div class="o-grid o-grid--middle">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 
@@ -73,7 +73,7 @@ exports[`valign 1`] = `
 exports[`wrapped 1`] = `
 
 <div class="o-grid o-grid--wrapped">
-  <div class="Dummy">
+  <div class="dummy">
   </div>
 </div>
 

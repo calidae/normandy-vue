@@ -1,6 +1,6 @@
 import Grid from './Grid'
 import { mount } from 'avoriaz'
-import Dummy from '@/Dummy'
+import { compileToFunctions } from 'vue-template-compiler'
 
 describe('Grid.vue', () => {
   beforeAll(() => {
@@ -15,8 +15,10 @@ describe('Grid.vue', () => {
   })
 
   it('renders slot content when defined', () => {
-    const wrapper = mount(Grid, { slots: { default: Dummy } })
-    expect(wrapper.first('.Dummy')).toBeTruthy()
+    const compiled = compileToFunctions('<div class="dummy"></div>')
+    const wrapper = mount(Grid, { slots: { default: compiled } })
+
+    expect(wrapper.first('.dummy')).toBeTruthy()
   })
 
   it('renders an snapshot', () => {
@@ -157,64 +159,72 @@ describe('Grid.vue', () => {
   })
 
   it('renders an snapshot with modifier class when size prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { size: 'large' }
     })
     expect(wrapper.html()).toMatchSnapshot('size')
   })
 
   it('renders an snapshot with modifier class when valign prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { valign: 'middle' }
     })
     expect(wrapper.html()).toMatchSnapshot('valign')
   })
 
   it('renders an snapshot with modifier class when space prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { space: 'between' }
     })
     expect(wrapper.html()).toMatchSnapshot('space')
   })
 
   it('renders an snapshot with modifier class when stretch prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { stretch: true }
     })
     expect(wrapper.html()).toMatchSnapshot('stretch')
   })
 
   it('renders an snapshot with modifier class when wrapped prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { wrapped: true }
     })
     expect(wrapper.html()).toMatchSnapshot('wrapped')
   })
 
   it('renders an snapshot with modifier class when liquid prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { liquid: true }
     })
     expect(wrapper.html()).toMatchSnapshot('liquid')
   })
 
   it('renders an snapshot with modifier class when auto prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { auto: true }
     })
     expect(wrapper.html()).toMatchSnapshot('auto')
   })
 
   it('renders an snapshot with modifier class when reverse prop is provided', () => {
+    const compiled = compileToFunctions('<div class="dummy"></div>')
     const wrapper = mount(Grid, {
-      slots: { default: Dummy },
+      slots: { default: compiled },
       propsData: { reverse: true }
     })
     expect(wrapper.html()).toMatchSnapshot('reverse')

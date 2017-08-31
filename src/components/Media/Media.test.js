@@ -1,6 +1,6 @@
 import Media from './Media'
 import { mount } from 'avoriaz'
-import Dummy from '@/Dummy'
+import { compileToFunctions } from 'vue-template-compiler'
 
 const propsData = {
   src: 'http://example.com',
@@ -21,8 +21,10 @@ describe('Media.vue', () => {
   })
 
   it('renders slot content when defined', () => {
-    const wrapper = mount(Media, { propsData, slots: { default: Dummy } })
-    expect(wrapper.first('.Dummy')).toBeTruthy()
+    const compiled = compileToFunctions('<div class="dummy"></div>')
+    const wrapper = mount(Media, { propsData, slots: { default: compiled } })
+
+    expect(wrapper.first('.dummy')).toBeTruthy()
   })
 
   it('src prop is required, is a String and validates correctly', () => {
