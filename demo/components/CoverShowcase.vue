@@ -38,7 +38,9 @@ export default {
       src: 'https://unsplash.it/960/400',
       slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
       optionalProps: {
-        size: [ 'flush', 'tiny', 'small', 'large', 'huge' ]
+        size: [ 'flush', 'tiny', 'small', 'large', 'huge' ],
+        align: [ 'left', 'right' ],
+        valign: [ 'top', 'bottom' ]
       }
     }
   }
