@@ -31,7 +31,7 @@ import ComponentHeader from './ComponentHeader'
 export default {
   name: 'media-showcase',
   components: {
-    [ComponentHeader.name]: ComponentHeader
+    ComponentHeader
   },
   data () {
     return {
