@@ -1,7 +1,7 @@
-import Home from '../showcase/Home'
-import GridShowcase from '../showcase/components/GridShowcase'
-import MediaShowcase from '../showcase/components/MediaShowcase'
-import BlockShowcase from '../showcase/components/BlockShowcase'
+import Home from '../components/Home'
+import GridShowcase from '../components/GridShowcase'
+import MediaShowcase from '../components/MediaShowcase'
+import BlockShowcase from '../components/BlockShowcase'
 
 export default [
   {

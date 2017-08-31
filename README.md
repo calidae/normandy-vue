@@ -69,7 +69,7 @@ Fork the repo, and then:
 
 3. Add it to the `demo/` app. Make sure to add import it in `demo/index.js` and add a new route in `demo/router/routes.js`.
 
-4. Once registered and routed, develop a Showcase component and place it in `demo/showcase`. You're done!
+4. Once registered and routed, showcase it by placing a demo in `demo/`. You're done!
 
 
 ### Why is /dist folder not gitignored?

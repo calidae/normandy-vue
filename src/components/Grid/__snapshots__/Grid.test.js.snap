@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`align 1`] = `
-
-<div class="o-grid o-grid--middle">
-  <div class="Dummy">
-  </div>
-</div>
-
-`;
-
 exports[`auto 1`] = `
 
 <div class="o-grid o-grid--auto o-grid--liquid">
@@ -64,6 +55,15 @@ exports[`space 1`] = `
 exports[`stretch 1`] = `
 
 <div class="o-grid o-grid--stretch">
+  <div class="Dummy">
+  </div>
+</div>
+
+`;
+
+exports[`valign 1`] = `
+
+<div class="o-grid o-grid--middle">
   <div class="Dummy">
   </div>
 </div>

@@ -8,9 +8,10 @@ const propsData = {
 }
 
 describe('Media.vue', () => {
-  beforeAll(() => console.error = jest.fn(error => {
-    throw new Error(error)
-  }))
+  beforeAll(() => {
+    console.error = jest.fn(error => { throw new Error(error) })
+    console.warn = jest.fn(warn => { throw new Error(warn) })
+  })
 
   it('renders correct nodes when required props are provided', () => {
     const wrapper = mount(Media, { propsData })
@@ -24,45 +25,74 @@ describe('Media.vue', () => {
     expect(wrapper.first('.Dummy')).toBeTruthy()
   })
 
+  it('src prop is required, is a String and validates correctly', () => {
+    const wrapper = mount(Media, { propsData })
+    const src = wrapper.vm.$options.props.src
+
+    expect(src.required).toBeTruthy()
+    expect(src.type).toBe(String)
+  })
+
+  it('alt prop is required, is a String and validates correctly', () => {
+    const wrapper = mount(Media, { propsData })
+    const alt = wrapper.vm.$options.props.alt
+
+    expect(alt.required).toBeTruthy()
+    expect(alt.type).toBe(String)
+  })
+
   it('adds size class when size prop is provided', () => {
     const values = ['flush', 'tiny', 'small', 'large', 'huge']
 
     values.forEach((size) => {
-      const wrapper = mount(Media, { propsData: { ...propsData, size } })
+      const wrapper = mount(Media, { propsData })
+      wrapper.setProps({ size })
       expect(wrapper.hasClass(`o-media--${size}`)).toBe(true)
     })
   })
 
-  it('adds align class when align prop is provided', () => {
-    const values = ['center', 'bottom', 'stretch']
+  it('adds valign class when valign prop is provided', () => {
+    const values = ['center', 'bottom']
 
-    values.forEach((align) => {
-      const wrapper = mount(Media, { propsData: { ...propsData, align } })
-      expect(wrapper.hasClass(`o-media--${align}`)).toBe(true)
+    values.forEach((valign) => {
+      const wrapper = mount(Media, { propsData })
+      wrapper.setProps({ valign })
+      expect(wrapper.hasClass(`o-media--${valign}`)).toBe(true)
     })
   })
 
   it('adds reverse class when reverse prop is provided', () => {
-    const wrapper = mount(Media, { propsData: { ...propsData, reverse: true } })
+    const wrapper = mount(Media, { propsData })
+    wrapper.setProps({ reverse: true })
     expect(wrapper.hasClass('o-media--reverse')).toBe(true)
   })
 
-  it('adds all optional classes when all props are provided', () => {
-    const wrapper = mount(Media, {
-      propsData: { ...propsData, size: 'small', align: 'stretch', reverse: true }
-    })
-    expect(wrapper.hasClass('o-media--reverse')).toBe(true)
-    expect(wrapper.hasClass('o-media--small')).toBe(true)
+  it('adds stretch class when stretch prop is provided', () => {
+    const wrapper = mount(Media, { propsData })
+    wrapper.setProps({ stretch: true })
     expect(wrapper.hasClass('o-media--stretch')).toBe(true)
   })
 
+  it('adds all optional classes when all props are provided', () => {
+    const wrapper = mount(Media, { propsData })
+    wrapper.setProps({
+      size: 'small',
+      valign: 'middle',
+      reverse: true
+    })
+    expect(wrapper.hasClass('o-media--reverse')).toBe(true)
+    expect(wrapper.hasClass('o-media--small')).toBe(true)
+    expect(wrapper.hasClass('o-media--middle')).toBe(true)
+  })
+
   it('changes size prop when its class', () => {
-    const wrapper = mount(Media, { propsData: { ...propsData, size: 'large' } })
+    const wrapper = mount(Media, { propsData })
+
+    wrapper.setProps({ size: 'large' })
     expect(wrapper.hasClass('o-media--large')).toBe(true)
     expect(wrapper.hasClass('o-media--small')).toBe(false)
 
     wrapper.setProps({ size: 'small' })
-
     expect(wrapper.hasClass('o-media--small')).toBe(true)
     expect(wrapper.hasClass('o-media--large')).toBe(false)
   })
@@ -72,20 +102,16 @@ describe('Media.vue', () => {
   })
 
   it('breaks with invalid size prop value', () => {
+    const valign = 'invalidProp'
     expect(() => {
-      mount(Media, { propsData: { ...propsData, size: 'willfail' } })
-    }).toThrow()
-  })
-
-  it('breaks with invalid size prop value', () => {
-    expect(() => {
-      mount(Media, { propsData: { ...propsData, align: 'willfail' } })
+      mount(Media, { propsData: { ...propsData, valign } })
     }).toThrow()
   })
 
   it('breaks with invalid reverse prop value', () => {
+    const reverse = 'invalidProp'
     expect(() => {
-      mount(Media, { propsData: { ...propsData, reverse: 'willfail' } })
+      mount(Media, { propsData: { ...propsData, reverse } })
     }).toThrow()
   })
 

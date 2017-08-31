@@ -1,64 +1,42 @@
 <template>
-  <div class="o-grid"
-    :class="[
-      align && `o-grid--${align}`,
-      size && `o-grid--${size}`,
-      space && `o-grid--${space}`,
-      {
-        'o-grid--stretch': stretch,
-        'o-grid--wrapped': wrapped,
-        'o-grid--liquid': liquid,
-        'o-grid--auto o-grid--liquid': auto,
-        'o-grid--reverse': reverse
-      }
-    ]">
+  <div class="o-grid" :class="[ classes ]">
     <slot></slot>
   </div>
 </template>
 
 <script>
-const ALIGN_VALUES = ['bottom', 'middle']
-const SIZE_VALUES = ['flush', 'tiny', 'small', 'large', 'huge']
-const SPACE_VALUES = ['around', 'between', 'center', 'end']
+import VueTypes from 'vue-types'
+import { VALIGN_VALUES, SIZE_VALUES, SPACE_VALUES } from '@/constraints'
 
 export default {
   name: 'Grid',
   props: {
-    align: {
-      type: String,
-      validator: value => ALIGN_VALUES.includes(value)
-    },
-    size: {
-      type: String,
-      validator: value => SIZE_VALUES.includes(value)
-    },
-    space: {
-      type: String,
-      validator: value => SPACE_VALUES.includes(value)
-    },
-    stretch: {
-      type: Boolean,
-      default: false
-    },
-    auto: {
-      type: Boolean,
-      default: false
-    },
-    liquid: {
-      type: Boolean,
-      default: false
-    },
-    reverse: {
-      type: Boolean,
-      default: false
-    },
-    wrapped: {
-      type: Boolean,
-      default: false
-    }
+    valign: VueTypes.oneOf(VALIGN_VALUES),
+    size: VueTypes.oneOf(SIZE_VALUES),
+    space: VueTypes.oneOf(SPACE_VALUES),
+    stretch: VueTypes.bool.def(false),
+    auto: VueTypes.bool.def(false),
+    liquid: VueTypes.bool.def(false),
+    reverse: VueTypes.bool.def(false),
+    wrapped: VueTypes.bool.def(false)
   },
   data () {
     return {}
+  },
+  computed: {
+    classes () {
+      return {
+        [`o-grid--${this.valign}`]: this.valign,
+        [`o-grid--${this.size}`]: this.size,
+        [`o-grid--${this.space}`]: this.space,
+        'o-grid--stretch': this.stretch,
+        'o-grid--wrapped': this.wrapped,
+        'o-grid--liquid': this.liquid,
+        'o-grid--auto o-grid--liquid': this.auto,
+        'o-grid--reverse': this.reverse
+
+      }
+    }
   }
 }
 </script>

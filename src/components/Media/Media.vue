@@ -1,10 +1,5 @@
 <template>
-  <div class="o-media"
-    :class="[
-      align && `o-media--${align}`,
-      size && `o-media--${size}`,
-      { 'o-media--reverse': reverse }
-    ]">
+  <div class="o-media" :class="[ classes ]">
 
     <div class="o-media__img">
       <img v-bind="{ src, alt }" />
@@ -18,35 +13,31 @@
 </template>
 
 <script>
-const VALIGN_VALUES = [ 'center', 'bottom', 'stretch' ]
-const SIZE_VALUES = [ 'flush', 'tiny', 'small', 'large', 'huge' ]
+import VueTypes from 'vue-types'
+import { VALIGN_VALUES, SIZE_VALUES } from '@/constraints'
 
 export default {
   name: 'Media',
   props: {
-    src: {
-      type: String,
-      required: true
-    },
-    alt: {
-      type: String,
-      required: true
-    },
-    reverse: {
-      type: Boolean,
-      default: false
-    },
-    size: {
-      type: String,
-      validator: value => SIZE_VALUES.includes(value)
-    },
-    align: {
-      type: String,
-      validator: value => VALIGN_VALUES.includes(value)
-    }
+    src: VueTypes.string.isRequired,
+    alt: VueTypes.string.isRequired,
+    size: VueTypes.oneOf(SIZE_VALUES),
+    valign: VueTypes.oneOf(VALIGN_VALUES),
+    stretch: VueTypes.bool.def(false),
+    reverse: VueTypes.bool.def(false)
   },
   data () {
     return {}
+  },
+  computed: {
+    classes () {
+      return {
+        [`o-media--${this.valign}`]: this.valign,
+        [`o-media--${this.size}`]: this.size,
+        'o-media--stretch': this.stretch,
+        'o-media--reverse': this.reverse
+      }
+    }
   }
 }
 </script>
