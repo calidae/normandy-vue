@@ -1,12 +1,12 @@
 <template>
   <div>
     <component-header
-      title="Media"
-      description="Place any image- and text-like content side-by-side" />
+      title="Cover"
+      description="Place any text as a cover from an image" />
 
-    <media v-bind="{ src, alt }">
+    <Cover :src="src">
       {{ slot }}
-    </media>
+    </Cover>
 
     <div v-for="(prop, propName) in optionalProps" :key="propName">
       <h2>{{ propName }} modifier</h2>
@@ -15,9 +15,9 @@
 
       <div class="object-wrapper" v-for="value in prop" :key="value">
         <h3>{{ value }}</h3>
-        <media v-bind="{ src, alt, [propName]: value }">
+        <Cover v-bind="{ src, [propName]: value }">
           {{ slot }}
-        </media>
+        </Cover>
       </div>
 
     </div>
@@ -29,22 +29,27 @@
 import ComponentHeader from './ComponentHeader'
 
 export default {
-  name: 'media-showcase',
+  name: 'cover-showcase',
   components: {
     ComponentHeader
   },
   data () {
     return {
-      src: 'http://via.placeholder.com/350x150',
-      alt: 'logo',
-      slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, reiciendis fugiat ut voluptate fugit quisquam modi maiores, perspiciatis quasi praesentium ab vel at repellat amet atque? Veniam, officia, sint.',
+      src: 'https://unsplash.it/960/400',
+      slot: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
       optionalProps: {
         size: [ 'flush', 'tiny', 'small', 'large', 'huge' ],
-        valign: [ 'middle', 'bottom' ],
-        reverse: [true],
-        stretch: [true]
+        align: [ 'left', 'right' ],
+        valign: [ 'top', 'bottom' ]
       }
     }
   }
 }
 </script>
+
+<style scoped>
+  .o-cover {
+    height: 250px;
+  }
+</style>
+

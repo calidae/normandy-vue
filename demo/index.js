@@ -7,13 +7,15 @@ import {
   Media,
   Grid,
   GridItem,
-  Block
+  Block,
+  Cover
 } from '../src/lib'
 
 Vue.component('Media', Media)
 Vue.component('Grid', Grid)
 Vue.component('Grid-item', GridItem)
 Vue.component('Block', Block)
+Vue.component('Cover', Cover)
 
 Vue.config.productionTip = false
 

@@ -1,6 +1,6 @@
 import GridItem from './GridItem'
 import { mount } from 'avoriaz'
-import Dummy from '@/Dummy'
+import { compileToFunctions } from 'vue-template-compiler'
 
 describe('GridItem.vue', () => {
   beforeAll(() => {
@@ -15,8 +15,10 @@ describe('GridItem.vue', () => {
   })
 
   it('renders slot content when defined', () => {
-    const wrapper = mount(GridItem, { slots: { default: Dummy } })
-    expect(wrapper.first('.Dummy')).toBeTruthy()
+    const compiled = compileToFunctions('<div class="dummy"></div>')
+    const wrapper = mount(GridItem, { slots: { default: compiled } })
+
+    expect(wrapper.first('.dummy')).toBeTruthy()
   })
 
   it('adds style properties when width prop is provided', () => {

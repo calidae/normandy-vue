@@ -2,6 +2,7 @@ import Home from '../components/Home'
 import GridShowcase from '../components/GridShowcase'
 import MediaShowcase from '../components/MediaShowcase'
 import BlockShowcase from '../components/BlockShowcase'
+import CoverShowcase from '../components/CoverShowcase'
 
 export default [
   {
@@ -23,5 +24,10 @@ export default [
     path: '/block',
     name: 'block',
     component: BlockShowcase
+  },
+  {
+    path: '/cover',
+    name: 'cover',
+    component: CoverShowcase
   }
 ]
