@@ -3,6 +3,7 @@ import GridShowcase from '../components/GridShowcase'
 import MediaShowcase from '../components/MediaShowcase'
 import BlockShowcase from '../components/BlockShowcase'
 import CoverShowcase from '../components/CoverShowcase'
+import WrapperShowcase from '../components/WrapperShowcase'
 
 export default [
   {
@@ -29,5 +30,10 @@ export default [
     path: '/cover',
     name: 'cover',
     component: CoverShowcase
+  },
+  {
+    path: '/wrapper',
+    name: 'wrapper',
+    component: WrapperShowcase
   }
 ]
