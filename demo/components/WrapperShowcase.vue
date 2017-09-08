@@ -40,7 +40,7 @@ export default {
   data () {
     return {
       optionalProps: {
-        size: [ 'tiny', 'small', 'large', 'huge' ]
+        size: [ 'flush', 'tiny', 'small', 'large', 'huge' ]
       }
     }
   }
