@@ -2,11 +2,11 @@
   <div>
     <component-header
       title="Wrapper"
-      description="Place any content into a wrappered container" />
+      description="Place any content into a wrapped container" />
 
     <Wrapper>
-      <div class="c-wrappered-element">
-        <b>wrappered element</b>
+      <div class="c-wrapped-element">
+        <b>wrapped element</b>
       </div>
     </Wrapper>
 
@@ -18,8 +18,8 @@
       <div v-for="value in prop" :key="value">
         <h3>{{ value }}</h3>
         <Wrapper v-bind="{ [propName]: value }">
-          <div class="c-wrappered-element">
-            <b>wrappered element</b>
+          <div class="c-wrapped-element">
+            <b>wrapped element</b>
           </div>
         </Wrapper>
       </div>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-  .c-wrappered-element {
+  .c-wrapped-element {
     outline: 2px solid #f00;
     background-color: rgba(255, 0, 0, 0.1);
     height: 250px;

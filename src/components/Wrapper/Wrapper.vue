@@ -1,6 +1,6 @@
 <template>
   <div class="o-wrapper" :class="[ classes ]">
-      <slot></slot>
+    <slot></slot>
   </div>
 </template>
 
