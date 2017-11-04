@@ -2,7 +2,7 @@ import Wrapper from './Wrapper'
 import { mount } from 'avoriaz'
 import { compileToFunctions } from 'vue-template-compiler'
 
-describe('Cover.vue', () => {
+describe('Wrapper.vue', () => {
   beforeAll(() => {
     console.error = jest.fn(error => { throw new Error(error) })
     console.warn = jest.fn(warn => { throw new Error(warn) })
@@ -15,7 +15,6 @@ describe('Cover.vue', () => {
 
   it('renders slot content when defined', () => {
     const compiled = compileToFunctions('<div class="dummy"></div>')
-
     const wrapper = mount(Wrapper, { slots: { default: compiled } })
     expect(wrapper.first('.dummy')).toBeTruthy()
   })
