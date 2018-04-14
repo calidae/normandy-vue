@@ -5,16 +5,12 @@ import router from './router'
 
 import {
   Media,
-  Grid,
-  GridItem,
   Block,
   Cover,
   Wrapper
 } from '../src/lib'
 
 Vue.component('Media', Media)
-Vue.component('Grid', Grid)
-Vue.component('Grid-item', GridItem)
 Vue.component('Block', Block)
 Vue.component('Cover', Cover)
 Vue.component('Wrapper', Wrapper)

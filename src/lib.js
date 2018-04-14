@@ -1,6 +1,4 @@
 export { default as Media } from './components/Media'
-export { default as Grid } from './components/Grid'
-export { default as GridItem } from './components/GridItem'
 export { default as Block } from './components/Block'
 export { default as Cover } from './components/Cover'
 export { default as Wrapper } from './components/Wrapper'
